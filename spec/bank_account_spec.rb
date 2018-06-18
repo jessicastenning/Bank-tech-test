@@ -15,4 +15,12 @@ describe Bank_account do
     end
   end
 
+  describe '#withdraw' do
+    it 'should allow users to withdraw funds' do
+      subject.deposit(15)
+      subject.withdraw(10)
+      expect(subject.balance).to eq 5
+    end
+  end 
+
 end
