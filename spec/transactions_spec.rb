@@ -8,7 +8,7 @@ describe Transactions do
       expect(transaction.balance).to eq 0
     end
     it 'should have a transaction history equal to an empty array ' do
-      expect(transaction.transactions).to eq []
+      expect(transaction.transaction_history).to eq []
     end
   end
 
@@ -33,12 +33,12 @@ describe Transactions do
   describe '#transactions' do
     it 'should record details of a deposit transaction' do
       transaction.deposit(10)
-      expect(transaction.transactions).to include("credit, 10, #{Time.now.strftime('%d/%m/%y')}, 10")
+      expect(transaction.transaction_history).to include("credit, 10, #{Time.now.strftime('%d/%m/%y')}, 10")
     end
     it 'should record details of a withdrawal transaction' do
       transaction.deposit(10)
       transaction.withdraw(8)
-      expect(transaction.transactions).to include("debit, 8, #{Time.now.strftime('%d/%m/%y')}, 2")
+      expect(transaction.transaction_history).to include("debit, 8, #{Time.now.strftime('%d/%m/%y')}, 2")
     end
   end
 end

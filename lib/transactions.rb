@@ -1,11 +1,11 @@
 class Transactions
-  attr_reader :transactions, :balance
+  attr_reader :transaction_history, :balance
 
   DEFAULT_BALANCE = 0
 
   def initialize
     @balance = DEFAULT_BALANCE
-    @transactions = []
+    @transaction_history = []
   end
 
   def deposit(amount)
@@ -22,7 +22,7 @@ class Transactions
   private
 
   def confirm_transaction(type, amount)
-    @transactions.push("#{type}, #{amount}, #{Time.now.strftime('%d/%m/%y')}, #{@balance}")
+    @transaction_history.push("#{type}, #{amount}, #{Time.now.strftime('%d/%m/%y')}, #{@balance}")
   end
 
   def balance_increase(amount)
