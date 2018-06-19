@@ -3,9 +3,10 @@ class BankAccount
   attr_reader :balance, :transactions, :current_transaction, :time
 
   TIME = Time.now.strftime("%d/%m/%y %H:%M")
+  DEFAULT_BALANCE = 0
 
   def initialize
-    @balance = 0
+    @balance = DEFAULT_BALANCE
     @transactions = []
   end
 
