@@ -1,3 +1,4 @@
+require_relative './transactions'
 
 class BankAccount
   attr_reader :balance, :transactions, :time
