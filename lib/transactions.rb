@@ -8,15 +8,15 @@ class Transactions
     @transactions = []
   end
 
-  def deposit(type, amount)
+  def deposit(amount)
     balance_increase(amount)
-    confirm_transaction(type, amount)
+    confirm_transaction("credit", amount)
   end
 
-  def withdraw(type, amount)
+  def withdraw(amount)
     raise 'Insufficient funds' if @balance < amount
     balance_decrease(amount)
-    confirm_transaction(type, amount)
+    confirm_transaction("debit", amount)
   end
 
   private
