@@ -22,15 +22,15 @@ describe BankAccount do
       bank_account.withdraw(10)
       expect(bank_account.balance).to eq 5
     end
-    it 'should raise an error if a user tries to withdraw an amount greater than the balance' do
-      expect{ bank_account.withdraw(10) }.to raise_error "Insufficient funds"
+    it 'should raise an error if withdrawal amount is greater than balance' do
+      expect { bank_account.withdraw(10) }.to raise_error 'Insufficient funds'
     end
   end
 
   describe '#current_transaction' do
     it 'should record details of a deposit transaction' do
       bank_account.deposit(10)
-      expect(bank_account.transactions).to eq (["10, #{BankAccount::TIME}, 10"])
+      expect(bank_account.transactions).to include("10, #{BankAccount::TIME}, 10")
     end
     it 'should record details of a withdrawal transaction' do
       bank_account.deposit(10)
@@ -38,5 +38,4 @@ describe BankAccount do
       expect(bank_account.transactions).to include("8, #{BankAccount::TIME}, 2")
     end
   end
-
 end

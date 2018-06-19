@@ -1,8 +1,8 @@
-class BankAccount
 
+class BankAccount
   attr_reader :balance, :transactions, :time
 
-  TIME = Time.now.strftime("%d/%m/%y %H:%M")
+  TIME = Time.now.strftime('%d/%m/%y %H:%M')
   DEFAULT_BALANCE = 0
 
   def initialize
@@ -16,7 +16,7 @@ class BankAccount
   end
 
   def withdraw(amount)
-    fail "Insufficient funds" if @balance < amount
+    raise 'Insufficient funds' if @balance < amount
     balance_decrease(amount)
     confirm_transaction(amount)
   end
@@ -34,5 +34,4 @@ class BankAccount
   def balance_decrease(amount)
     @balance -= amount
   end
-
 end
