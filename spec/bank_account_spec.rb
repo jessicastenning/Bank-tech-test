@@ -1,6 +1,7 @@
 require 'bank_account'
 
-describe Bank_account do
+describe BankAccount do
+  subject(:bank_account) { BankAccount.new }
 
   describe '#balance' do
     it 'should have a default balance of zero' do
@@ -29,7 +30,7 @@ describe Bank_account do
   describe '#current_transaction' do
     it 'should record details of the current withdrawal transaction' do
       subject.deposit(10)
-      expect(subject.current_transaction).to eq (["10, #{Bank_account::TIME}, 10"])
+      expect(subject.current_transaction).to eq (["10, #{BankAccount::TIME}, 10"])
     end
   end
 

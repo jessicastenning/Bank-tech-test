@@ -1,4 +1,4 @@
-class Bank_account
+class BankAccount
 
   attr_reader :balance, :transactions, :current_transaction, :time
 
