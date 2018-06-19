@@ -26,4 +26,11 @@ describe Bank_account do
     end
   end
 
+  describe '#current_transaction' do
+    it 'should record details of the current withdrawal transaction' do
+      subject.deposit(10)
+      expect(subject.current_transaction).to eq (["10, #{Bank_account::TIME}, 10"])
+    end
+  end
+
 end
