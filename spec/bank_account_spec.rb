@@ -39,4 +39,12 @@ describe BankAccount do
     end
   end
 
+  describe '#reset_current_transaction' do
+    it 'should reset the current transaction to be an empty array' do
+      bank_account.deposit(10)
+      bank_account.reset_current_transaction
+      expect(bank_account.current_transaction).to eq []
+    end
+  end
+
 end

@@ -21,4 +21,10 @@ class BankAccount
     @current_transaction.push("#{amount}, #{TIME}, #{@balance}")
   end
 
+  def reset_current_transaction
+    @current_transaction = []
+  end
+
+
+
 end
