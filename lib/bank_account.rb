@@ -18,6 +18,7 @@ class BankAccount
   def withdraw(amount)
     fail "Insufficient funds" if @balance < amount
     @balance -= amount
+    @current_transaction.push("#{amount}, #{TIME}, #{@balance}")
   end
 
 end

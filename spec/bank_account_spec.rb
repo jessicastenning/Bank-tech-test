@@ -32,6 +32,11 @@ describe BankAccount do
       bank_account.deposit(10)
       expect(bank_account.current_transaction).to eq (["10, #{BankAccount::TIME}, 10"])
     end
+    it 'should record details of the current withdrawal transaction' do
+      bank_account.deposit(10)
+      bank_account.withdraw(8)
+      expect(bank_account.current_transaction).to include("8, #{BankAccount::TIME}, 2")
+    end
   end
 
 end
