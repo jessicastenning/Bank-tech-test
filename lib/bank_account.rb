@@ -7,24 +7,21 @@ class BankAccount
   def initialize
     @balance = 0
     @transactions = []
-    @current_transaction = []
   end
 
   def deposit(amount)
     @balance += amount
-    @current_transaction.push("#{amount}, #{TIME}, #{@balance}")
+    confirm_transaction(amount)
   end
 
   def withdraw(amount)
     fail "Insufficient funds" if @balance < amount
     @balance -= amount
-    @current_transaction.push("#{amount}, #{TIME}, #{@balance}")
+    confirm_transaction(amount)
   end
 
-  def reset_current_transaction
-    @current_transaction = []
+  def confirm_transaction(amount)
+    @transactions.push("#{amount}, #{TIME}, #{@balance}")
   end
-
-
 
 end

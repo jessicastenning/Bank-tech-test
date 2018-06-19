@@ -28,22 +28,14 @@ describe BankAccount do
   end
 
   describe '#current_transaction' do
-    it 'should record details of the current deposit transaction' do
+    it 'should record details of a deposit transaction' do
       bank_account.deposit(10)
-      expect(bank_account.current_transaction).to eq (["10, #{BankAccount::TIME}, 10"])
+      expect(bank_account.transactions).to eq (["10, #{BankAccount::TIME}, 10"])
     end
-    it 'should record details of the current withdrawal transaction' do
+    it 'should record details of a withdrawal transaction' do
       bank_account.deposit(10)
       bank_account.withdraw(8)
-      expect(bank_account.current_transaction).to include("8, #{BankAccount::TIME}, 2")
-    end
-  end
-
-  describe '#reset_current_transaction' do
-    it 'should reset the current transaction to be an empty array' do
-      bank_account.deposit(10)
-      bank_account.reset_current_transaction
-      expect(bank_account.current_transaction).to eq []
+      expect(bank_account.transactions).to include("8, #{BankAccount::TIME}, 2")
     end
   end
 
