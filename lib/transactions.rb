@@ -10,19 +10,24 @@ class Transactions
 
   def deposit(amount)
     balance_increase(amount)
-    confirm_transaction("credit", amount)
+    confirm_deposit(amount)
   end
 
   def withdraw(amount)
     raise 'Insufficient funds' if @balance < amount
     balance_decrease(amount)
-    confirm_transaction("debit", amount)
+    confirm_withdraw(amount)
   end
 
   private
 
-  def confirm_transaction(type, amount)
-    transaction = Time.now.strftime('%d/%m/%y'), amount, type, @balance
+  def confirm_deposit(amount)
+    transaction = Time.now.strftime('%d/%m/%y'), amount, "---", @balance
+    @transaction_history.push(transaction)
+  end
+
+  def confirm_withdraw(amount)
+    transaction = Time.now.strftime('%d/%m/%y'), "---", amount, @balance
     @transaction_history.push(transaction)
   end
 
