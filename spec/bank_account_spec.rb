@@ -2,8 +2,8 @@ require 'bank_account'
 
 describe BankAccount do
   subject(:bank_account) { BankAccount.new(transactions, statement) }
-  let(:transactions) { double("transactions") }
-  let(:statement) { double("statement") }
+  let(:transactions) { double('transactions') }
+  let(:statement) { double('statement') }
 
   describe '#initialize' do
     it 'should create an instance of transactions' do

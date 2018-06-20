@@ -32,14 +32,14 @@ describe Transactions do
   end
 
   describe '#transactions' do
-    it 'should record details of a deposit transaction' do
+    it 'should record the details of a transaction' do
       transaction.deposit(10)
-      expect(transaction.transaction_history).to include(["#{DATE}", 10, "--- ", 10])
+      expect(transaction.transaction_history.length).to eq 1
     end
-    it 'should record details of a withdrawal transaction' do
+    it 'should record details of multiple transactions' do
       transaction.deposit(10)
       transaction.withdraw(8)
-      expect(transaction.transaction_history).to include(["#{DATE}", "---", 8, 2])
+      expect(transaction.transaction_history.length).to eq 2
     end
   end
 end
