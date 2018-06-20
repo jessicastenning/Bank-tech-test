@@ -2,6 +2,7 @@ require 'transactions'
 
 describe Transactions do
   subject(:transaction) { Transactions.new }
+  DATE = Time.now.strftime('%d/%m/%y')
 
   describe '#initialize' do
     it 'should have a default balance of zero' do
@@ -33,12 +34,12 @@ describe Transactions do
   describe '#transactions' do
     it 'should record details of a deposit transaction' do
       transaction.deposit(10)
-      expect(transaction.transaction_history).to include("credit, 10, #{Time.now.strftime('%d/%m/%y')}, 10")
+      expect(transaction.transaction_history).to include(["#{DATE}", 10, "credit", 10])
     end
     it 'should record details of a withdrawal transaction' do
       transaction.deposit(10)
       transaction.withdraw(8)
-      expect(transaction.transaction_history).to include("debit, 8, #{Time.now.strftime('%d/%m/%y')}, 2")
+      expect(transaction.transaction_history).to include(["#{DATE}", 8, "debit", 2])
     end
   end
 end

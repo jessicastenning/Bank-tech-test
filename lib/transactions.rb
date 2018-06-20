@@ -22,7 +22,8 @@ class Transactions
   private
 
   def confirm_transaction(type, amount)
-    @transaction_history.push("#{type}, #{amount}, #{Time.now.strftime('%d/%m/%y')}, #{@balance}")
+    transaction = Time.now.strftime('%d/%m/%y'), amount, type, @balance
+    @transaction_history.push(transaction)
   end
 
   def balance_increase(amount)
