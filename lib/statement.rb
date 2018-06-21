@@ -1,5 +1,5 @@
 class Statement
-  
+
   def pretty_print(transaction_history)
     header
     transaction_history.reverse_each do |transaction|
