@@ -24,9 +24,9 @@ class Transactions
   def confirm_deposit(amount)
     transaction = {
       date: Time.now.strftime('%d/%m/%y'),
-      credit: amount,
-      debit: '---',
-      balance: @balance
+      credit: '%.2f' % amount,
+      debit: '------',
+      balance: '%.2f' % @balance
     }
     @transaction_history.push(transaction)
   end
@@ -34,9 +34,9 @@ class Transactions
   def confirm_withdraw(amount)
     transaction = {
       date: Time.now.strftime('%d/%m/%y'),
-      credit: '---',
-      debit: amount,
-      balance: @balance
+      credit: '------',
+      debit: '%.2f' % amount,
+      balance: '%.2f' % @balance
     }
     @transaction_history.push(transaction)
   end
