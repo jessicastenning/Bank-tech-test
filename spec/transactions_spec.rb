@@ -2,6 +2,12 @@ require 'transactions'
 
 describe Transactions do
   subject(:transaction) { Transactions.new }
+  let(:transaction1) do
+    { date: DATE, credit: '10.00', debit: '------', balance: '10.00' }
+  end
+  let(:transaction2) do
+    { date: DATE, credit: '------', debit: '8.00', balance: '2.00' }
+  end
   DATE = Time.now.strftime('%d/%m/%y')
 
   describe '#initialize' do
@@ -34,12 +40,12 @@ describe Transactions do
   describe '#transactions' do
     it 'should record the details of a transaction' do
       transaction.deposit(10)
-      expect(transaction.transaction_history.length).to eq 1
+      expect(transaction.transaction_history).to include(transaction1)
     end
     it 'should record details of multiple transactions' do
       transaction.deposit(10)
       transaction.withdraw(8)
-      expect(transaction.transaction_history.length).to eq 2
+      expect(transaction.transaction_history).to include(transaction1, transaction2)
     end
   end
 end

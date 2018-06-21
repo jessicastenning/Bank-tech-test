@@ -4,8 +4,8 @@ describe Statement do
   subject(:statement) { Statement.new }
 
   let(:transaction_history) do
-    [{ date: '20/06/18', credit: '%.2f' % 100, debit: '------', balance: '%.2f' % 100 },
-     { date: '21/06/18', credit: '------', debit: '%.2f' % 100, balance: '%.2f' % 0 }]
+    [{ date: '20/06/18', credit: format('%.2f', 100), debit: '------', balance: format('%.2f', 100) },
+     { date: '21/06/18', credit: '------', debit: format('%.2f', 100), balance: format('%.2f', 0) }]
   end
 
   describe '#pretty_print' do
