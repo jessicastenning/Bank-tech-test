@@ -1,7 +1,7 @@
 # Bank Tech Test
 A practice test delivered at Makers Academy, focused on the production of best practice code, obeying the principles of OO Design and TDD.
 
-###Requirements:
+### Requirements:
 Build a command line app that operates like a bank account - a user should be able to make deposits and withdrawals
 and request an account statement detailing the date, amount, and balance of all transactions.
 
@@ -19,7 +19,7 @@ bundle install
 ```
 ## Approach
 
-To better understand the requirements of the brief, I initially broke down the requested features into User Stories
+To better understand the requirements of the brief, I broke down the requested features into User Stories.
 
 ## User Stories
 ```
