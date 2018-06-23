@@ -6,13 +6,13 @@ describe BankAccount do
   let(:statement) { double('statement') }
 
   describe '#initialize' do
-    it 'should create an instance of transactions' do
+    it 'creates an instance of transactions' do
       expect(bank_account.transactions).to eq(transactions)
     end
   end
 
   describe '#deposit' do
-    it 'should call the deposit method on transactions' do
+    it 'calls the deposit method on transactions' do
       allow(transactions).to receive(:deposit)
       bank_account.deposit(10)
       expect(transactions).to have_received(:deposit)
@@ -20,7 +20,7 @@ describe BankAccount do
   end
 
   describe '#withdraw' do
-    it 'should call the withdraw method on transactions' do
+    it 'calls the withdraw method on transactions' do
       allow(transactions).to receive(:withdraw)
       bank_account.withdraw(5)
       expect(transactions).to have_received(:withdraw)
@@ -33,11 +33,11 @@ describe BankAccount do
       allow(transactions).to receive(:transaction_history)
     end
 
-    it 'should call the pretty_print method on statements' do
+    it 'calls the pretty_print method on statements' do
       bank_account.print_statement
       expect(statement).to have_received(:pretty_print)
     end
-    it 'should call the transaction_history method on transactions' do
+    it 'calls the transaction_history method on transactions' do
       bank_account.print_statement
       expect(transactions).to have_received(:transaction_history)
     end

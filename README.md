@@ -63,10 +63,10 @@ new_account.deposit(250)
 new_account.print_statement
 
 # =>
- Date     || Credit || Debit || Balance
- 21/06/18 || 250    || ---   || 350
- 21/06/18 || ---    || 100   || 100
- 21/06/18 || 200    || ---   || 200
+ Date     || Credit  || Debit    || Balance
+ 21/06/18 || 250.00  || ------   || 350
+ 21/06/18 || ------- || 100.00   || 100
+ 21/06/18 || 200.00  || ------   || 200
 ```
 
 ## Testing and Code quality

@@ -14,7 +14,7 @@ describe Statement do
       " 21/06/18 || ------  || 100.00 || 0.00\n" \
       " 20/06/18 || 100.00  || ------ || 100.00\n"
     end
-    it 'should print the transaction_history' do
+    it 'prints the transaction_history' do
       expect { statement.pretty_print(transaction_history) }.to output(pretty_print).to_stdout
     end
   end
